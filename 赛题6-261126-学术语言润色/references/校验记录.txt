@@ -1,0 +1,32 @@
+赛题6 提交包校验记录（2026-11-25）
+
+一、submission 目录内容（v3 最终版）
+  SKILL.md            11854 bytes
+  interface.md         7750 bytes
+  polish_validate.py  21857 bytes
+  文件数：3（含本记录后为 4）；总计 41461 bytes（不含本记录）
+  单文件最大 21857 bytes < 500KB；总量 < 2MB；符号链接数 0
+  逐字节比对：v3/SKILL.md、v3/scripts/polish_validate.py、v3/references/interface.md
+             与 submission/ 对应文件全部一致（cmp 通过）
+  YAML frontmatter：v1/v2/v3/submission 的 name + description 检查全部 OK
+
+二、Trace 验证（playground CLI v0.1.58）
+  命令：playground trace validate --trace evaluation/round3/trace_v3.jsonl
+  输出：
+  {
+    "path": "D:\\Worktop\\261129 玻尔\\261125_Q6\\evaluation\\round3\\trace_v3.jsonl",
+    "format": "jsonl",
+    "jsonl_events": 13,
+    "usable_events": 13,
+    "valid": true
+  }
+  另：round1/trace_v1.jsonl → valid=true, usable_events=15
+      round2/trace_v2.jsonl → valid=true, usable_events=14
+
+三、脚本行为复核（submission/polish_validate.py）
+  evaluation/round3/skill_result.json → status=pass（0 errors）
+  evaluation/selftest/bad.json        → status=fail（16 errors，反面案例被拦截）
+  evaluation/selftest/weird.json      → status=fail（12 errors，异常输入不崩溃）
+
+四、提交状态
+  默认不提交，暂停等待用户明确指令；未调用 API、未读取令牌、未填写 GitHub 假链接。
